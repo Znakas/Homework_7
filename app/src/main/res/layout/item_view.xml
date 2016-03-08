@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:background="@drawable/item_view_backround"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/income_title"
+        style="@style/ItemTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textColor="@color/textOnItemViev"
+        android:text="@string/item_1"/>
+    <TextView
+        android:id="@+id/income_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:textColor="@android:color/background_dark"
+
+        android:text="@string/text_item1"/>
+</LinearLayout>

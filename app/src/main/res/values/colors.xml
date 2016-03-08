@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textOnItemViev">#ca0e1a</color>
+    <color name="colorAccentLight">#eab9ca</color>
+    <color name="contentDisableColor">#aaffffff</color>
+    <color name="textDisableColor">#c2c2c2</color>
+</resources>
