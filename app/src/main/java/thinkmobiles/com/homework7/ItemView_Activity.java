@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class ItemView_Activity extends AppCompatActivity {
     TextView income_title;
     TextView income_text;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
