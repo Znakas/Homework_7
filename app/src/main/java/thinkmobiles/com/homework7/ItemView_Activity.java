@@ -1,17 +1,11 @@
 package thinkmobiles.com.homework7;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
 /**
  * Created by Andrii on 06.03.2016.
  */
@@ -39,7 +33,7 @@ public class ItemView_Activity extends AppCompatActivity {
             mActionBar.setHomeButtonEnabled(true);
             mActionBar.setDisplayShowHomeEnabled(true);
             mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setHomeAsUpIndicator(R.drawable.ic_settings);
+            mActionBar.setHomeAsUpIndicator(R.mipmap.ic_arrow);
         }
     }
     @Override

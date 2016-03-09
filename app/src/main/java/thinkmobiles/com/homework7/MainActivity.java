@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout item1_llayout;
     LinearLayout item2_llayout;
     LinearLayout item3_llayout;
+    TextView settings1;
+    TextView settings2;
+    TextView settings3;
     MenuItem action_item1;
     MenuItem action_item2;
     MenuItem action_item3;
@@ -31,18 +34,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         textViewitem_1 = (TextView) findViewById(R.id.textViewitem_1);
         textViewitem_2 = (TextView) findViewById(R.id.textViewitem_2);
         textViewitem_3 = (TextView) findViewById(R.id.textViewitem_3);
+        settings1 = (TextView) findViewById(R.id.settings1);
+        settings2 = (TextView) findViewById(R.id.settings2);
+        settings3 = (TextView) findViewById(R.id.settings3);
         item1_llayout = (LinearLayout) findViewById(R.id.item1_layout);
         item2_llayout = (LinearLayout) findViewById(R.id.item2_layout);
         item3_llayout = (LinearLayout) findViewById(R.id.item3_layout);
-        item1_llayout.setEnabled(false);
-        item2_llayout.setEnabled(false);
-        item3_llayout.setEnabled(false);
     }
-    public void CheckItem(){
+    public void CheckItem(int item_checked){
         switch(item_checked){
             case ITEM1:
                 item1_checked();
@@ -54,6 +56,43 @@ public class MainActivity extends AppCompatActivity {
                 item3_checked();
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        action_item1 = menu.findItem(R.id.action_item1);
+        action_item2 = menu.findItem(R.id.action_item2);
+        action_item3 = menu.findItem(R.id.action_item3);
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_item1:
+                item_checked = 1;
+                action_item1.setIcon(R.drawable.ic_checked);
+                action_item2.setIcon(R.drawable.ic_unchecked);
+                action_item3.setIcon(R.drawable.ic_unchecked);
+                Intent actionIntent = new Intent();
+                actionIntent.putExtra("123", item.getItemId());
+                item1_checked();
+                break;
+            case R.id.action_item2:
+                item_checked = 2;
+                action_item1.setIcon(R.drawable.ic_unchecked);
+                action_item2.setIcon(R.drawable.ic_checked);
+                action_item3.setIcon(R.drawable.ic_unchecked);
+                item2_checked();
+                break;
+            case R.id.action_item3:
+                item_checked = 3;
+                action_item1.setIcon(R.drawable.ic_unchecked);
+                action_item2.setIcon(R.drawable.ic_unchecked);
+                action_item3.setIcon(R.drawable.ic_checked);
+                item3_checked();
+                break;
+        }
+        return true;
     }
     public void onClick1(View v) {
         final PopupMenu menu = new PopupMenu(this, v);
@@ -130,40 +169,6 @@ public class MainActivity extends AppCompatActivity {
         });
         menu.show();
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        action_item1 = menu.findItem(R.id.action_item1);
-        action_item2 = menu.findItem(R.id.action_item2);
-        action_item3 = menu.findItem(R.id.action_item3);
-        return super.onCreateOptionsMenu(menu);
-    }
- public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_item1:
-                item_checked = 1;
-                action_item1.setIcon(R.drawable.ic_checked);
-                action_item2.setIcon(R.drawable.ic_unchecked);
-                action_item3.setIcon(R.drawable.ic_unchecked);
-                item1_checked();
-                break;
-            case R.id.action_item2:
-                item_checked = 2;
-                action_item1.setIcon(R.drawable.ic_unchecked);
-                action_item2.setIcon(R.drawable.ic_checked);
-                action_item3.setIcon(R.drawable.ic_unchecked);
-                item2_checked();
-                break;
-            case R.id.action_item3:
-                item_checked = 3;
-                action_item1.setIcon(R.drawable.ic_unchecked);
-                action_item2.setIcon(R.drawable.ic_unchecked);
-                action_item3.setIcon(R.drawable.ic_checked);
-                item3_checked();
-                break;
-        }
-        return true;
-    }
     private void item1_checked() {
         item1_llayout.setBackgroundResource(R.drawable.item_checked);
         item2_llayout.setBackgroundResource(R.drawable.item_unchecked);
@@ -171,6 +176,9 @@ public class MainActivity extends AppCompatActivity {
         textViewitem_1.setTextColor(getResources().getColor(R.color.contentDisableColor));
         textViewitem_2.setTextColor(getResources().getColor(R.color.textDisableColor));
         textViewitem_3.setTextColor(getResources().getColor(R.color.textDisableColor));
+        settings1.setEnabled(true);
+        settings2.setEnabled(false);
+        settings3.setEnabled(false);
     }
     private void item2_checked() {
         item1_llayout.setBackgroundResource(R.drawable.item_unchecked);
@@ -179,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
         textViewitem_1.setTextColor(getResources().getColor(R.color.textDisableColor));
         textViewitem_2.setTextColor(getResources().getColor(R.color.contentDisableColor));
         textViewitem_3.setTextColor(getResources().getColor(R.color.textDisableColor));
+        settings1.setEnabled(false);
+        settings2.setEnabled(true);
+        settings3.setEnabled(false);
     }
     private void item3_checked() {
         item1_llayout.setBackgroundResource(R.drawable.item_unchecked);
@@ -187,6 +198,9 @@ public class MainActivity extends AppCompatActivity {
         textViewitem_1.setTextColor(getResources().getColor(R.color.textDisableColor));
         textViewitem_2.setTextColor(getResources().getColor(R.color.textDisableColor));
         textViewitem_3.setTextColor(getResources().getColor(R.color.contentDisableColor));
+        settings1.setEnabled(false);
+        settings2.setEnabled(false);
+        settings3.setEnabled(true);
     }
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -195,6 +209,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         item_checked = savedInstanceState.getInt(SELECTED_ITEM);
-        CheckItem();
+        CheckItem(item_checked);
     }
 }
