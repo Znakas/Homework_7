@@ -69,23 +69,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_item1:
-                item_checked = 1;
+                item_checked = ITEM1;
                 action_item1.setIcon(R.drawable.ic_checked);
                 action_item2.setIcon(R.drawable.ic_unchecked);
                 action_item3.setIcon(R.drawable.ic_unchecked);
-                Intent actionIntent = new Intent();
-                actionIntent.putExtra("123", item.getItemId());
                 item1_checked();
                 break;
             case R.id.action_item2:
-                item_checked = 2;
+                item_checked = ITEM2;
                 action_item1.setIcon(R.drawable.ic_unchecked);
                 action_item2.setIcon(R.drawable.ic_checked);
                 action_item3.setIcon(R.drawable.ic_unchecked);
                 item2_checked();
                 break;
             case R.id.action_item3:
-                item_checked = 3;
+                item_checked = ITEM3;
                 action_item1.setIcon(R.drawable.ic_unchecked);
                 action_item2.setIcon(R.drawable.ic_unchecked);
                 action_item3.setIcon(R.drawable.ic_checked);
